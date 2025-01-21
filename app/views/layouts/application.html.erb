@@ -3,30 +3,11 @@
 <head>
   <title>MyMapApp</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="google-maps-api-key" content="<%= Rails.application.credentials.google_maps_api_key %>">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
-  <script>
-    function initMap() {
-      const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: 27.669360, lng: 85.335518 }, 
-        zoom: 12,
-      });
-
-      // Add a marker
-      new google.maps.Marker({
-        position: { lat: 37.7749, lng: -122.4194 },
-        map: map,
-        title: "Hello World!",
-      });
-    }
-  </script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key %>&callback=initMap"
-    async
-    defer
-  ></script>
 </head>
 <body>
   <%= yield %>
